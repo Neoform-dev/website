@@ -1,36 +1,149 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌟 NeoForm
 
-## Getting Started
+### *Reimagine Google Forms with Beautiful UI – Fast, Minimal, Connected*
 
-First, run the development server:
+---
+
+## 🚀 Overview
+
+**NeoForm** is a **Google Forms Wrapper SaaS** that lets you transform boring, default Google Forms into beautiful, custom-styled forms – while keeping Google Sheets as the backend.
+We provide the UI, you control the data.
+
+---
+
+> https://www.notion.so/213cd0ed0c258084b2b1fd05e84cf8cf?v=213cd0ed0c2580eb8dfa000cc31ea17f
+
+> https://neoform.dev
+
+## 🎯 Key Features
+
+* ✅ **Google Form Integration** – Just paste your form link.
+* ✅ **Custom UI Themes** – Modern, minimal, mobile-friendly designs.
+* ✅ **Google Sheets Backend** – No extra database required.
+* ✅ **Developer API** – Generate endpoints to power your own UI.
+* ✅ **Fast & Lightweight** – Zero backend data storage.
+* ✅ **OAuth Secure** – Your data stays with you.
+
+---
+
+## 🌐 How It Works
+
+1. 🔗 **Connect Google Form** – Paste your Google Form link.
+2. 🎨 **Choose UI Theme** – Select from clean, minimal templates.
+3. 📤 **Share or Embed** – Get a hosted link or embed code.
+4. 🧩 **(Optional) API Mode** – Build your custom UI using our API.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Frontend:** Next.js (React) + TailwindCSS
+* **Backend:** Node.js (Serverless)
+* **Auth:** Google OAuth 2.0
+* **API:** Google Forms & Google Sheets Integration
+* **UI Library:** Shadcn / Custom Components
+
+---
+
+## 📦 Project Structure
+
+```plaintext
+neoform/
+│
+├── /public          # Static assets
+├── /components      # Reusable UI components
+├── /pages           # Next.js routes
+├── /api             # Serverless backend functions
+├── /utils           # Helper functions
+├── /styles          # Global and component styles
+└── README.md        # Project documentation
+```
+
+---
+
+## ⚡ Quick Start
+
+1. Clone the repo:
+
+```bash
+git clone https://github.com/your-username/neoform.git
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Set up environment variables:
+
+```bash
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+NEXT_PUBLIC_BASE_URL=
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛡️ Security & Privacy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* OAuth authentication via Google.
+* No form submission data is stored on our servers.
+* Users can revoke Google access at any time.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 💸 Pricing (Example)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Plan | Features                          | Price   |
+| ---- | --------------------------------- | ------- |
+| Free | 1 Form, NeoForm Branding          | \$0     |
+| Pro  | Unlimited Forms, Branding Removal | \$5/mo  |
+| Dev  | API Access, Custom Embeds         | \$10/mo |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🌱 Future Roadmap
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* 🔁 Google Forms Field Auto-Detection
+* 📊 Analytics Dashboard
+* 🔗 Webhook Support
+* 📥 File Upload (Google Drive Storage)
+* 🖼️ Custom Form Builder
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🤝 Contributing
+
+We welcome contributions, feature suggestions, and bug reports!
+Feel free to open an issue or submit a pull request.
+
+---
+
+## 📬 Contact
+
+* **Founder:** Shaswat Raj
+* **Email:** [sh20raj@gmail.com](mailto:sh20raj@gmail.com)
+* **Twitter:** [@SH20RAJ](https://twitter.com/SH20RAJ)
+
+---
+
+## 📃 License
+
+MIT License
+
+---
+
+If you want, I can help you add:
+
+* Shields (Badges)
+* Demo link section
+* Deployment guide
+
+Let me know!
