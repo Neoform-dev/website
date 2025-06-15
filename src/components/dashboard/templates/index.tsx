@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Search, Star, Eye, Plus, Grid, List } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -276,12 +277,16 @@ export function Templates() {
                   </div>
 
                   <div className="flex space-x-2 pt-2">
-                    <Button size="sm" className="flex-1">
-                      Use Template
-                    </Button>
-                    <Button variant="outline" size="sm">
-                      Preview
-                    </Button>
+                    <Link href="/demo" className="flex-1">
+                      <Button size="sm" className="w-full">
+                        Use Template
+                      </Button>
+                    </Link>
+                    <Link href="/demo">
+                      <Button variant="outline" size="sm">
+                        Preview
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </CardContent>
@@ -339,12 +344,16 @@ export function Templates() {
                       </div>
                       
                       <div className="flex space-x-2 ml-4">
-                        <Button size="sm">
-                          Use Template
-                        </Button>
-                        <Button variant="outline" size="sm">
-                          Preview
-                        </Button>
+                        <Link href="/demo">
+                          <Button size="sm">
+                            Use Template
+                          </Button>
+                        </Link>
+                        <Link href="/demo">
+                          <Button variant="outline" size="sm">
+                            Preview
+                          </Button>
+                        </Link>
                       </div>
                     </div>
                   </div>

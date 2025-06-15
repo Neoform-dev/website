@@ -1,6 +1,7 @@
 "use client";
 
 import { Plus, Menu } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
@@ -32,10 +33,12 @@ export function Header({ title, onMenuClick }: HeaderProps) {
 
           {/* Header actions */}
           <div className="flex items-center space-x-3">
-            <Button className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary">
-              <Plus className="w-4 h-4 mr-2" />
-              Create Form
-            </Button>
+            <Link href="/demo">
+              <Button className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary">
+                <Plus className="w-4 h-4 mr-2" />
+                Create Form
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
