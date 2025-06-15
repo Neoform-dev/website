@@ -23,22 +23,24 @@ export function DashboardLayoutWrapper({ children }: DashboardLayoutWrapperProps
   const pageTitle = getPageTitle(pathname);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="h-screen bg-gray-50/50 flex overflow-hidden">
       <Sidebar 
         isOpen={sidebarOpen} 
         onClose={() => setSidebarOpen(false)} 
       />
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         <Header
           title={pageTitle}
           onMenuClick={() => setSidebarOpen(true)}
         />
 
-        {/* Page Content */}
-        <main className="flex-1 p-4 sm:p-6 lg:p-8">
-          {children}
+        {/* Scrollable Page Content */}
+        <main className="flex-1 overflow-y-auto">
+          <div className="p-6 lg:p-8">
+            {children}
+          </div>
         </main>
       </div>
     </div>
