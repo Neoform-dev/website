@@ -75,7 +75,7 @@ export function Header({ title, onMenuClick }: HeaderProps) {
             </Button>
 
             {/* Create Form CTA */}
-            <Link href="/demo">
+            <Link href="/create">
               <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg shadow-blue-500/25 hover:shadow-purple-500/25 transition-all duration-200 rounded-2xl px-6 py-2.5">
                 <Plus className="w-4 h-4 mr-2" />
                 Create Form
