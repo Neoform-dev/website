@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Dashboard } from "@/components/dashboard/dashboard";
+import { DashboardContent } from "@/components/dashboard/content";
 
 export const metadata: Metadata = {
   title: "Dashboard | NeoForm",
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function DashboardPage() {
-  return <Dashboard />;
+  return <DashboardContent />;
 }
