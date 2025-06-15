@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 import { ArrowLeft, Chrome } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -11,14 +12,15 @@ export function GoogleSignup() {
 
   const handleGoogleJoin = async () => {
     setIsLoading(true);
-    // Simulate API call - in real implementation, this would:
-    // 1. Check if user exists in database
-    // 2. If exists, update last login and redirect to dashboard
-    // 3. If new user, create account and redirect to onboarding
-    setTimeout(() => {
-      // For demo, we'll redirect to onboarding for new users
-      window.location.href = "/onboarding";
-    }, 2000);
+    try {
+      await signIn("google", {
+        callbackUrl: "/onboarding",
+        redirect: true,
+      });
+    } catch (error) {
+      console.error("Sign in error:", error);
+      setIsLoading(false);
+    }
   };
 
   return (

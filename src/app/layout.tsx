@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { AuthProvider } from "@/components/auth/auth-provider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -80,12 +81,36 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/icons/safari-pinned-tab.svg",
+        color: "#3b82f6",
+      },
+    ],
   },
   verification: {
     google: "google-site-verification-code",
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "NeoForm",
+  },
+  other: {
+    "mobile-web-app-capable": "yes",
+    "application-name": "NeoForm",
+    "msapplication-TileColor": "#3b82f6",
+    "msapplication-config": "/browserconfig.xml",
+    "theme-color": "#3b82f6",
   },
 };
 
@@ -96,10 +121,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="theme-color" content="#3b82f6" />
+        <link rel="manifest" href="/manifest.json" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

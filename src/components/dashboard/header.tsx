@@ -3,6 +3,7 @@
 import { Plus, Menu, Search, Bell, Settings } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { UserButton } from "@/components/auth/user-button";
 
 interface HeaderProps {
   title: string;
@@ -81,6 +82,9 @@ export function Header({ title, onMenuClick }: HeaderProps) {
                 Create Form
               </Button>
             </Link>
+
+            {/* User Menu */}
+            <UserButton />
           </div>
         </div>
       </div>
