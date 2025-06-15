@@ -338,7 +338,7 @@ export function TypeformDemo() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-800 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br bg-black   flex flex-col">
       {/* Progress Bar */}
       <div className="w-full h-1 bg-white/20">
         <div 
