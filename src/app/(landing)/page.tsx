@@ -10,6 +10,7 @@ import {
   CTA,
   Footer,
 } from "@/components/landing";
+import { Visuals } from "@/components/landing/visuals";
 
 export const metadata: Metadata = {
   title: "NeoForm - Reimagine Google Forms with Beautiful UI",
@@ -57,12 +58,13 @@ export const metadata: Metadata = {
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-background">
+    <div className="min-h-screen">
       <Header />
-      <main>
+      <main className="flex flex-col items-center">
         <Hero />
         <Features />
         <HowItWorks />
+        <Visuals />
         <Demo />
         <Pricing />
         <Testimonials />

@@ -1,11 +1,11 @@
 :root {
-  --background: oklch(0.9612 0 0);
+  --background: oklch(96.115% 0.00011 271.152 / 0.711);
   --foreground: oklch(0.1730 0 0);
   --card: oklch(0.9911 0 0);
   --card-foreground: oklch(0.1730 0 0);
   --popover: oklch(0.9911 0 0);
   --popover-foreground: oklch(0.1730 0 0);
-  --primary: oklch(0.4291 0.0924 32.8454);
+  --primary: oklch(74.403% 0.10321 213.221);
   --primary-foreground: oklch(1.0000 0 0);
   --secondary: oklch(0.9022 0.0746 70.5710);
   --secondary-foreground: oklch(0.3495 0.0802 42.2948);

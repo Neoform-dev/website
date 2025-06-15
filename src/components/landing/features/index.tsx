@@ -4,7 +4,7 @@ import { FEATURES } from "@/constants/landing";
 
 export function Features() {
   return (
-    <section id="features" className="py-24 bg-muted/50">
+    <section id="features" className="py-24 bg-muted/50 flex items-center justify-center w-full">
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">

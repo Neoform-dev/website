@@ -5,7 +5,7 @@ import { HOW_IT_WORKS_STEPS } from "@/constants/landing";
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24">
+    <section id="how-it-works" className="py-24 flex items-center justify-center w-full">
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">

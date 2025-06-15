@@ -5,7 +5,7 @@ import { FOOTER_SECTIONS, SOCIAL_LINKS } from "@/constants/landing";
 
 export function Footer() {
   return (
-    <footer className="bg-muted/50 py-16">
+    <footer className="bg-muted/50 py-12 flex items-center justify-center w-full">
       <div className="container">
         <div className="grid gap-8 lg:grid-cols-5">
           {/* Brand */}
@@ -61,7 +61,7 @@ export function Footer() {
           ))}
         </div>
 
-        <Separator className="my-8" />
+        <Separator className="my-6" />
 
         {/* Bottom */}
         <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
