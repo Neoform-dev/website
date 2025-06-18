@@ -60,27 +60,34 @@ export function Sidebar({ className }: SidebarProps) {
   const pathname = usePathname();
 
   return (
-    <div className={cn("pb-12", className)}>
-      <div className="space-y-4 py-4">
-        <div className="px-3 py-2">
-          <div className="space-y-1">
-            <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-              {sidebarNavItems.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <Link key={item.href} href={item.href}>
-                    <Button
-                      variant={pathname === item.href ? "secondary" : "ghost"}
-                      className="w-full justify-start"
-                    >
-                      <Icon className="mr-2 h-4 w-4" />
-                      {item.title}
-                    </Button>
-                  </Link>
-                );
-              })}
-            </nav>
-          </div>
+    <div className={cn("flex flex-col h-full", className)}>
+      <div className="flex-1 px-3 py-4 overflow-y-auto sidebar-scroll">
+        <nav className="flex flex-col space-y-1">
+          {sidebarNavItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = pathname === item.href;
+            return (
+              <Link key={item.href} href={item.href}>
+                <Button
+                  variant={isActive ? "secondary" : "ghost"}
+                  className={cn(
+                    "w-full justify-start text-left font-normal h-10",
+                    isActive && "bg-secondary text-secondary-foreground"
+                  )}
+                >
+                  <Icon className="mr-3 h-4 w-4 flex-shrink-0" />
+                  {item.title}
+                </Button>
+              </Link>
+            );
+          })}
+        </nav>
+      </div>
+      
+      {/* Bottom section */}
+      <div className="p-3 border-t flex-shrink-0">
+        <div className="text-xs text-muted-foreground text-center">
+          © 2025 NeoForm
         </div>
       </div>
     </div>

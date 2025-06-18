@@ -24,9 +24,33 @@ export function DashboardLayoutWrapper({ children }: DashboardLayoutWrapperProps
   const pageTitle = getPageTitle(pathname);
 
   return (
-    <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-      <div className="hidden border-r bg-muted/40 md:block">
-        <div className="flex h-full max-h-screen flex-col gap-2">
+    <div className="flex h-screen overflow-hidden">
+      {/* Mobile Sidebar Overlay */}
+      {sidebarOpen && (
+        <div className="fixed inset-0 z-50 md:hidden">
+          <div 
+            className="fixed inset-0 bg-black/50" 
+            onClick={() => setSidebarOpen(false)} 
+          />
+          <div className="fixed left-0 top-0 h-full w-64 bg-background border-r shadow-lg">
+            <div className="flex h-14 items-center border-b px-4">
+              <div className="flex items-center gap-2 font-semibold">
+                <div className="h-6 w-6 rounded bg-primary flex items-center justify-center">
+                  <span className="text-xs font-bold text-primary-foreground">N</span>
+                </div>
+                <span>NeoForm</span>
+              </div>
+            </div>
+            <div className="flex-1 overflow-y-auto">
+              <Sidebar />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Desktop Sidebar */}
+      <div className="hidden md:flex md:w-64 lg:w-72 md:flex-col">
+        <div className="flex flex-col h-full border-r bg-muted/40">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
             <div className="flex items-center gap-2 font-semibold">
               <div className="h-6 w-6 rounded bg-primary flex items-center justify-center">
@@ -35,14 +59,16 @@ export function DashboardLayoutWrapper({ children }: DashboardLayoutWrapperProps
               <span>NeoForm</span>
             </div>
           </div>
-          <div className="flex-1">
+          <div className="flex-1 overflow-y-auto">
             <Sidebar />
           </div>
         </div>
       </div>
-      <div className="flex flex-col">
+      
+      {/* Main Content Area */}
+      <div className="flex flex-col flex-1 overflow-hidden">
         <Header title={pageTitle} onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+        <main className="flex-1 overflow-y-auto p-4 lg:p-6">
           {children}
         </main>
       </div>
