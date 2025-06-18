@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { HelpContent } from "@/components/dashboard/help";
+import { HelpContent } from "@/components/dashboard/help-content";
 
 export const metadata: Metadata = {
   title: "Help | NeoForm", 

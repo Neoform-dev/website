@@ -10,82 +10,57 @@ interface HeaderProps {
   onMenuClick: () => void;
 }
 
-export function Header({ title, onMenuClick }: HeaderProps) {
+export function Header({ title: _title, onMenuClick }: HeaderProps) {
   return (
-    <header className="bg-white/80 backdrop-blur-xl border-b border-gray-100/80 sticky top-0 z-30">
-      <div className="px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Left side */}
-          <div className="flex items-center space-x-4">
-            {/* Mobile menu button */}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={onMenuClick}
-              className="lg:hidden p-2 rounded-xl hover:bg-gray-100"
-            >
-              <Menu className="w-5 h-5" />
-            </Button>
+    <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="flex h-16 items-center px-4">
+        <div className="mr-4 hidden md:flex">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onMenuClick}
+            className="md:hidden"
+          >
+            <Menu className="h-5 w-5" />
+          </Button>
+        </div>
 
-            {/* Page title */}
-            <div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-                {title}
-              </h1>
-              <p className="text-sm text-gray-500 mt-0.5">
-                {title === "Dashboard" && "Welcome back, John! Here's what's happening."}
-                {title === "Forms" && "Manage and organize your forms"}
-                {title === "Templates" && "Discover beautiful form templates"}
-                {title === "Analytics" && "Track your form performance"}
-                {title === "Settings" && "Customize your workspace"}
-              </p>
-            </div>
+        <div className="mr-4 flex">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onMenuClick}
+            className="md:hidden"
+          >
+            <Menu className="h-5 w-5" />
+          </Button>
+        </div>
+
+        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+          <div className="w-full flex-1 md:w-auto md:flex-none">
+            <Button
+              variant="outline"
+              className="inline-flex items-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 relative w-full justify-start text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-64"
+            >
+              <Search className="mr-2 h-4 w-4" />
+              Search...
+            </Button>
           </div>
-
-          {/* Right side */}
-          <div className="flex items-center space-x-3">
-            {/* Search */}
-            <div className="hidden md:flex items-center space-x-3">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className="w-80 pl-10 pr-4 py-2.5 bg-gray-50/80 border border-gray-200/60 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500/40 transition-all duration-200 text-sm"
-                />
-              </div>
-            </div>
-
-            {/* Notifications */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="relative p-2.5 rounded-xl hover:bg-gray-100 text-gray-600"
-            >
-              <Bell className="w-5 h-5" />
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-400 rounded-full border border-white"></div>
+          <nav className="flex items-center space-x-2">
+            <Button variant="ghost" size="sm">
+              <Bell className="h-4 w-4" />
             </Button>
-
-            {/* Settings */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="p-2.5 rounded-xl hover:bg-gray-100 text-gray-600"
-            >
-              <Settings className="w-5 h-5" />
+            <Button variant="ghost" size="sm">
+              <Settings className="h-4 w-4" />
             </Button>
-
-            {/* Create Form CTA */}
             <Link href="/create">
-              <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg shadow-blue-500/25 hover:shadow-purple-500/25 transition-all duration-200 rounded-2xl px-6 py-2.5">
-                <Plus className="w-4 h-4 mr-2" />
+              <Button>
+                <Plus className="mr-2 h-4 w-4" />
                 Create Form
               </Button>
             </Link>
-
-            {/* User Menu */}
             <UserButton />
-          </div>
+          </nav>
         </div>
       </div>
     </header>

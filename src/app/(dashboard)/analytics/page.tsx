@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { AnalyticsContent } from "@/components/dashboard/analytics";
+import { AnalyticsContent } from "@/components/dashboard/analytics-content";
 
 export const metadata: Metadata = {
   title: "Analytics | NeoForm",

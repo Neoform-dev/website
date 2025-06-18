@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SettingsContent } from "@/components/dashboard/settings";
+import { SettingsContent } from "@/components/dashboard/settings-content";
 
 export const metadata: Metadata = {
   title: "Settings | NeoForm",

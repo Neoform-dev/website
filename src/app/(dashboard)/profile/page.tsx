@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ProfileContent } from "@/components/dashboard/profile";
+import { ProfileContent } from "@/components/dashboard/profile-content";
 
 export const metadata: Metadata = {
   title: "Profile | NeoForm",

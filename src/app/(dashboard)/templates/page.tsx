@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Templates } from "@/components/dashboard/templates";
+import { TemplatesContent } from "@/components/dashboard/templates-content";
 
 export const metadata: Metadata = {
   title: "Templates | NeoForm",
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function TemplatesPage() {
-  return <Templates />;
+  return <TemplatesContent />;
 }
