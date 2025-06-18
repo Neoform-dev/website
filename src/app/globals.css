@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 
 /* @import '../themes/cute.css'; */
-@import '../themes/brutal.css';
+@import '../themes/main.css';
 @custom-variant dark (&:is(.dark *));
 
 :root {
