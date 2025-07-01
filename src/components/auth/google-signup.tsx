@@ -2,21 +2,20 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
+import { useStackApp } from "@stackframe/stack";
 import { ArrowLeft, Chrome } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
+// Google OAuth signup component using Stack Auth
 export function GoogleSignup() {
   const [isLoading, setIsLoading] = useState(false);
+  const stackApp = useStackApp();
 
   const handleGoogleJoin = async () => {
     setIsLoading(true);
     try {
-      await signIn("google", {
-        callbackUrl: "/onboarding",
-        redirect: true,
-      });
+      await stackApp.signInWithOAuth("google");
     } catch (error) {
       console.error("Sign in error:", error);
       setIsLoading(false);

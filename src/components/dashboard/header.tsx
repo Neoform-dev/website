@@ -4,6 +4,7 @@ import { Plus, Menu, Search, Bell, Settings } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { UserButton } from "@/components/auth/user-button";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 interface HeaderProps {
   title: string;
@@ -40,6 +41,7 @@ export function Header({ title: _title, onMenuClick }: HeaderProps) {
 
           {/* Right side actions */}
           <div className="flex items-center space-x-2">
+            <ThemeToggle />
             <Button variant="ghost" size="sm">
               <Bell className="h-4 w-4" />
             </Button>

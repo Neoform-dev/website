@@ -1,52 +1,54 @@
-import { auth } from "@/lib/auth"
-import { NextResponse } from "next/server"
-import type { NextRequest } from "next/server"
+import { stackServerApp } from "../stack";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 // Define protected routes
 const protectedRoutes = [
   "/dashboard",
-  "/forms",
+  "/forms", 
   "/templates",
-  "/analytics", 
+  "/analytics",
   "/settings",
   "/profile",
   "/create"
-]
+];
 
 // Define auth routes that should redirect to dashboard if already logged in
 const authRoutes = [
   "/signup",
   "/join",
-  "/login"
-]
+  "/login",
+  "/handler/sign-up",
+  "/handler/sign-in"
+];
 
 export async function middleware(request: NextRequest) {
-  const session = await auth()
-  const { pathname } = request.nextUrl
-
+  const pathname = request.nextUrl.pathname;
+  
+  // Get the user from Stack Auth
+  const user = await stackServerApp.getUser();
+  
   // Check if the current route is protected
   const isProtectedRoute = protectedRoutes.some(route => 
     pathname.startsWith(route)
-  )
-
+  );
+  
   // Check if the current route is an auth route
   const isAuthRoute = authRoutes.some(route => 
     pathname.startsWith(route)
-  )
-
-  // If trying to access protected route without session, redirect to signup
-  if (isProtectedRoute && !session) {
-    const signupUrl = new URL("/signup", request.url)
-    signupUrl.searchParams.set("callbackUrl", pathname)
-    return NextResponse.redirect(signupUrl)
+  );
+  
+  // If accessing a protected route without being logged in
+  if (isProtectedRoute && !user) {
+    return NextResponse.redirect(new URL("/handler/sign-in", request.url));
   }
-
-  // If trying to access auth route with session, redirect to dashboard
-  if (isAuthRoute && session) {
-    return NextResponse.redirect(new URL("/dashboard", request.url))
+  
+  // If accessing an auth route while already logged in
+  if (isAuthRoute && user) {
+    return NextResponse.redirect(new URL("/dashboard", request.url));
   }
-
-  return NextResponse.next()
+  
+  return NextResponse.next();
 }
 
 export const config = {
@@ -61,4 +63,4 @@ export const config = {
      */
     "/((?!api|_next/static|_next/image|favicon.ico|public|icons|manifest.json|sw.js|workbox-.*\\.js).*)",
   ],
-}
+};

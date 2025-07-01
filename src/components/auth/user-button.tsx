@@ -1,26 +1,33 @@
 "use client";
 
 import { useState } from "react";
-import { useSession, signOut } from "next-auth/react";
 import { User, Settings, LogOut, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { useUser, useStackApp } from "@stackframe/stack";
 
 export function UserButton() {
-  const { data: session } = useSession();
   const [isOpen, setIsOpen] = useState(false);
+  const user = useUser();
+  const stackApp = useStackApp();
 
-  if (!session?.user) {
+  if (!user) {
     return (
-      <Link href="/signup">
-        <Button>Sign In</Button>
-      </Link>
+      <div className="flex items-center space-x-2">
+        <Link href="/handler/sign-in">
+          <Button variant="ghost">Sign In</Button>
+        </Link>
+        <Link href="/handler/sign-up">
+          <Button>Sign Up</Button>
+        </Link>
+      </div>
     );
   }
 
-  const handleSignOut = () => {
-    signOut({ callbackUrl: "/" });
+  const handleSignOut = async () => {
+    await user.signOut();
+    setIsOpen(false);
   };
 
   return (
@@ -30,10 +37,10 @@ export function UserButton() {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-2 h-10 px-3 hover:bg-gray-100 transition-colors"
       >
-        {session.user.image ? (
+        {user.profileImageUrl ? (
           <Image
-            src={session.user.image}
-            alt={session.user.name || "User"}
+            src={user.profileImageUrl}
+            alt={user.displayName || "User"}
             width={32}
             height={32}
             className="w-8 h-8 rounded-full"
@@ -41,16 +48,16 @@ export function UserButton() {
         ) : (
           <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
             <span className="text-sm font-medium text-white">
-              {session.user.name?.charAt(0) || session.user.email?.charAt(0) || "U"}
+              {user.displayName?.charAt(0) || user.primaryEmail?.charAt(0) || "U"}
             </span>
           </div>
         )}
         <div className="hidden md:block text-left">
           <p className="text-sm font-medium text-gray-900">
-            {session.user.name || "User"}
+            {user.displayName || "User"}
           </p>
           <p className="text-xs text-gray-500 truncate max-w-32">
-            {session.user.email}
+            {user.primaryEmail}
           </p>
         </div>
         <ChevronDown className="w-4 h-4 text-gray-500" />
@@ -69,10 +76,10 @@ export function UserButton() {
             <div className="py-2">
               <div className="px-4 py-2 border-b border-gray-100">
                 <p className="text-sm font-medium text-gray-900">
-                  {session.user.name || "User"}
+                  {user.displayName || "User"}
                 </p>
                 <p className="text-xs text-gray-500">
-                  {session.user.email}
+                  {user.primaryEmail}
                 </p>
               </div>
               
